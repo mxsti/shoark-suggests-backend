@@ -39,7 +39,6 @@ app.post('/', async (req: Request, res: Response) => {
 });
 
 app.get('/', async (req: Request, res: Response) => {
-    console.log("hi");
     const suggestions: Suggestion[] = await prisma.suggestion.findMany();
     res.send(suggestions);
 });
