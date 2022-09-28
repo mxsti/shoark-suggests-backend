@@ -6,10 +6,12 @@ export const getSerie = async (imdbId: String): Promise<Suggestion> => {
         .then((response) => response.json())
         .then((data) => {
             const suggestion: Suggestion = {
+                imdbId: data.imdbID,
                 name: data.Title,
                 genre: data.Genre,
                 rating: data.imdbRating,
-                streamingService: "Netflix",
+                runtime: data.Runtime,
+                thumbnail: data.Poster,
             };
             return suggestion;
         });

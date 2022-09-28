@@ -11,9 +11,10 @@ datasource db {
 }
 
 model Suggestion {
-  imdbId           String @id
-  name             String
-  genre            String
-  rating           String
-  streamingService String
+  imdbId    String @id
+  thumbnail String
+  name      String
+  genre     String
+  rating    String
+  runtime   String
 }

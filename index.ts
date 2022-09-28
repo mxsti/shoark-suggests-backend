@@ -24,7 +24,8 @@ app.post('/', async (req: Request, res: Response) => {
                 name: suggestion.name,
                 genre: suggestion.genre,
                 rating: suggestion.rating,
-                streamingService: suggestion.streamingService,
+                thumbnail: suggestion.thumbnail,
+                runtime: suggestion.runtime,
             }
         });
 
