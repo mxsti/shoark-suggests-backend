@@ -2,12 +2,10 @@ import { PrismaClient } from '@prisma/client';
 import express from 'express';
 import { Request, Response } from 'express';
 import { getSerie } from './utils/omdb';
-import cors from 'cors';
 
 
 require('dotenv').config();
 const app = express();
-app.use(cors);
 app.use(express.json());
 const prisma = new PrismaClient();
 
@@ -39,6 +37,8 @@ app.post('/', async (req: Request, res: Response) => {
 });
 
 app.get('/', async (req: Request, res: Response) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET");
     const suggestions: Suggestion[] = await prisma.suggestion.findMany();
     res.send(suggestions);
 });
