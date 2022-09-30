@@ -13,6 +13,8 @@ const prisma = new PrismaClient();
 app.post('/', async (req: Request, res: Response) => {
     // only need imdb id from request
     const imdbId = req.body.imdbId;
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "POST");
     if (imdbId) {
         // grab movie/series data from omdb api
         const suggestion: Suggestion = await getSerie(imdbId);
@@ -28,9 +30,7 @@ app.post('/', async (req: Request, res: Response) => {
                 runtime: suggestion.runtime,
             }
         });
-        
-        res.header("Access-Control-Allow-Origin", "*");
-        res.header("Access-Control-Allow-Methods", "POST");
+
         res.send(`created ${JSON.stringify(suggestion)}`);
 
         // TODO error handling I guess
