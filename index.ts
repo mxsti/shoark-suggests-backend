@@ -28,7 +28,9 @@ app.post('/', async (req: Request, res: Response) => {
                 runtime: suggestion.runtime,
             }
         });
-
+        
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Methods", "GET");
         res.send(`created ${JSON.stringify(suggestion)}`);
 
         // TODO error handling I guess
