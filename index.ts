@@ -30,7 +30,7 @@ app.post('/', async (req: Request, res: Response) => {
         });
         
         res.header("Access-Control-Allow-Origin", "*");
-        res.header("Access-Control-Allow-Methods", "GET");
+        res.header("Access-Control-Allow-Methods", "POST");
         res.send(`created ${JSON.stringify(suggestion)}`);
 
         // TODO error handling I guess
