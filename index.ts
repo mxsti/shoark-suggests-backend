@@ -14,7 +14,7 @@ app.post('/', async (req: Request, res: Response) => {
     // only need imdb id from request
     const imdbId = req.body.imdbId;
     res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "POST");
+    res.header("Access-Control-Allow-Methods", "*");
     if (imdbId) {
         // grab movie/series data from omdb api
         const suggestion: Suggestion = await getSerie(imdbId);
